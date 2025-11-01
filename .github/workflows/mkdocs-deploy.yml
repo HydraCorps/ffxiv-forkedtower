@@ -1,0 +1,46 @@
+name: Deploy MKDocs to Azure Static Webapp
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  push:
+    branches: [ main ]
+    paths:
+      - '**'
+
+jobs:
+  deploy-documentation:
+    name: Deploy MkDocs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install MkDocs on agent
+        run: | 
+          pip install --upgrade pip
+          pip install mkdocs 
+          pip install mkdocs-material
+          pip install mkdocs-awesome-pages-plugin
+          pip install mkdocs-table-reader-plugin
+          pip install openpyxl
+
+      #https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
+
+      - name: Build documentation
+        run: |
+          mkdocs build -f ./mkdocs.yml   -d ../site
+
+      #https://learn.microsoft.com/en-us/azure/static-web-apps/build-configuration?tabs=github-actions#build-and-deploy
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: "upload"
+          app_location: "/site" # App source code path relative to repository root
+          output_location: "" # Built app content directory, relative to app_location - optional
