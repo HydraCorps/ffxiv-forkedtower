@@ -22,8 +22,8 @@ jobs:
 
       - name: Install MkDocs on agent
         run: | 
-            pip install playwright
-            playwright install chromium --with-deps
+            #pip install playwright
+            #playwright install chromium --with-deps
             pip install mkdocs \
                 mkdocs-material \
                 mkdocs-awesome-pages-plugin \
@@ -44,7 +44,13 @@ jobs:
         run: |
             pwd
             ls -als
-            mkdocs build -f ./mkdocs.yml -d ../site
+            mkdocs build -f ./mkdocs.yml
+
+      - name: Adjust permissions
+        run: |
+          chmod -c -R +rX site/ | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done            
 
       #https://learn.microsoft.com/en-us/azure/static-web-apps/build-configuration?tabs=github-actions#build-and-deploy
       - name: Build And Deploy
@@ -53,5 +59,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: "upload"
-          app_location: "/github/workspace/home/runner/work/ffxiv-forkedtower/site" # App source code path relative to repository root
+          app_location: "site" # App source code path relative to repository root
           output_location: "" # Built app content directory, relative to app_location - optional
