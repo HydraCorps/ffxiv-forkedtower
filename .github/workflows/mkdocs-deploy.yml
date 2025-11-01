@@ -42,7 +42,7 @@ jobs:
 
       - name: Build documentation
         run: |
-          mkdocs build -f ./mkdocs.yml   -d ../site
+          mkdocs build -f ./mkdocs.yml   -d /site
 
       #https://learn.microsoft.com/en-us/azure/static-web-apps/build-configuration?tabs=github-actions#build-and-deploy
       - name: Build And Deploy
