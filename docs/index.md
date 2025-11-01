@@ -352,33 +352,33 @@ The following macro's can be used to give the same directions as the outcomes sh
 
 Pattern 1
 
-``` bash
-/y LUE    → ↓ ↓ ↓  ↑ ← ← ↓  → ← ← ↓ <wait.2>
-/y ®ED      ← ↓ ↓ ↓  ↑ → → ↓  ← → → ↓ <wait.2>
+``` text
+/y LUE    → ↓ ↓ ↓  ↑ ← ← ↓  → ← ← ↓ <wait.1>
+/y ®ED      ← ↓ ↓ ↓  ↑ → → ↓  ← → → ↓ <wait.1>
 /y Final jump safe spots: C + 4
 ```
 
 Pattern 2
 
-``` bash
-/y LUE    ↑ ↑ ↑ ←  ↑ ↑ ↑ ↓  → ↓ ← ← <wait.2>
-/y ®ED      ↓ ↓ ↓ ←  ↓ ↓ ↓ ↑  ↓ → → ↑ <wait.2>
+``` text
+/y LUE    ↑ ↑ ↑ ←  ↑ ↑ ↑ ↓  → ↓ ← ← <wait.1>
+/y ®ED      ↓ ↓ ↓ ←  ↓ ↓ ↓ ↑  ↓ → → ↑ <wait.1>
 /y Final jump safe spots: C + D
 ```
 
 Pattern 3
 
-``` bash
-/y LUE    ← ↑ ↑ ↑  ↓ → → ↑  ← → → ↑ <wait.2>
-/y ®ED      → ↑ ↑ ↑  ↓ ↓ ← ↑  → ← ← ↑ <wait.2>
+``` text
+/y LUE    ← ↑ ↑ ↑  ↓ → → ↑  ← → → ↑ <wait.1>
+/y ®ED      → ↑ ↑ ↑  ↓ ↓ ← ↑  → ← ← ↑ <wait.1>
 /y Final jump safe spots: D + 3
 ```
 
 Pattern 4
 
-``` bash
-/y LUE    ↓ ↓ ↓ →  ↓ ↓ ↓ ↑  → ↑ ← → <wait.2>
-/y ®ED      ↑ ↑ ↑ →  ↑ ↑ ↑ ↓  ← ↓ → → <wait.2>
+``` text
+/y LUE    ↓ ↓ ↓ →  ↓ ↓ ↓ ↑  → ↑ ← → <wait.1>
+/y ®ED      ↑ ↑ ↑ →  ↑ ↑ ↑ ↓  ← ↓ → → <wait.1>
 /y Final jump safe spots: C + 3
 ```
 
